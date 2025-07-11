@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 7, "column": 0}, "map": {"version":3,"sources":["file:///home/user/studio/src/app/student/meals/booking/page.tsx"],"sourcesContent":["\n'use client';\n\nimport React from 'react';\n\nexport default function MealBookingPage() {\n  return (\n    <div>\n      {/* Page content will be added here. */}\n    </div>\n  );\n}\n"],"names":[],"mappings":";;;;AACA;;AAIe,SAAS;IACtB,qBACE,8OAAC;;;;;AAIL","debugId":null}}]
+}

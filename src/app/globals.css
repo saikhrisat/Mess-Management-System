@@ -1,0 +1,161 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 33 70% 90%; /* light peach */
+    --foreground: 24 30% 15%; /* dark brown */
+
+    --card: 33 70% 95%;
+    --card-foreground: 24 30% 15%;
+
+    --popover: 33 70% 95%;
+    --popover-foreground: 24 30% 15%;
+
+    --primary: 33 100% 50%; /* vibrant orange */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 33 50% 85%;
+    --secondary-foreground: 24 30% 15%;
+
+    --muted: 33 50% 88%;
+    --muted-foreground: 24 25% 40%;
+
+    --accent: 51 100% 50%; /* sunny yellow */
+    --accent-foreground: 24 30% 15%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 33 50% 80%;
+    --input: 33 50% 80%;
+    --ring: 33 100% 50%;
+
+    --radius: 0.75rem;
+
+    --chart-1: 33 100% 50%;
+    --chart-2: 51 100% 50%;
+    --chart-3: 25 55% 20%;
+    --chart-4: 33 50% 85%;
+    --chart-5: 33 50% 88%;
+
+    --sidebar-background: hsl(var(--card));
+    --sidebar-foreground: hsl(var(--card-foreground));
+    --sidebar-border: hsl(var(--border));
+    --sidebar-ring: hsl(var(--ring));
+    --sidebar-accent: hsl(var(--primary) / 0.1);
+    --sidebar-accent-foreground: hsl(var(--primary));
+  }
+
+  .dark {
+    --background: 24 15% 10%;
+    --foreground: 33 70% 90%;
+
+    --card: 24 15% 12%;
+    --card-foreground: 33 70% 90%;
+
+    --popover: 24 15% 12%;
+    --popover-foreground: 33 70% 90%;
+
+    --primary: 33 100% 60%;
+    --primary-foreground: 24 15% 5%;
+
+    --secondary: 24 15% 20%;
+    --secondary-foreground: 33 70% 90%;
+
+    --muted: 24 15% 15%;
+    --muted-foreground: 33 50% 70%;
+
+    --accent: 51 100% 60%;
+    --accent-foreground: 24 15% 5%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 24 15% 25%;
+    --input: 24 15% 25%;
+    --ring: 33 100% 60%;
+
+    --chart-1: 33 100% 60%;
+    --chart-2: 51 100% 60%;
+    --chart-3: 33 70% 90%;
+    --chart-4: 24 15% 20%;
+    --chart-5: 24 15% 15%;
+
+    --sidebar-background: hsl(var(--card));
+    --sidebar-foreground: hsl(var(--card-foreground));
+    --sidebar-border: hsl(var(--border));
+    --sidebar-ring: hsl(var(--ring));
+    --sidebar-accent: hsl(var(--primary) / 0.2);
+    --sidebar-accent-foreground: hsl(var(--primary));
+  }
+}
+
+@keyframes page-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  section {
+    @apply py-20 md:py-32;
+  }
+  main {
+    animation: page-fade-in 0.4s ease-out forwards;
+  }
+}
+
+/* New Animated Background */
+.animated-gradient {
+  background: linear-gradient(-45deg, hsl(var(--background)), hsl(var(--secondary)), hsl(var(--primary) / 0.2), hsl(var(--accent) / 0.2));
+  background-size: 400% 400%;
+  animation: gradientBG 20s ease infinite;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Scroll Animation Classes */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out, filter 0.8s ease-out;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Custom Pie Chart Animations for a smoother experience */
+.recharts-pie-sector .recharts-sector {
+  transform-origin: center;
+  transition: transform 0.2s ease-in-out, filter 0.2s ease-in-out;
+}
+
+.recharts-pie-sector:hover .recharts-sector {
+  transform: scale(1.07);
+  filter: drop-shadow(0 8px 16px hsla(var(--foreground) / 0.2));
+}
